@@ -37,7 +37,7 @@ class Calculator {
 		this.currentOperand = '';
 	}
 	
-	//does mathmatical computations based on inpuuts
+	//does mathmatical computations based on inputs
 	compute(){
 		//define variables
 		let computation;//computation variable (let)
