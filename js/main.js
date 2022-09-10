@@ -1,3 +1,4 @@
+
 //alert "hello" when page is refreshed
 window.onload = function () {
 	alert("hello");
