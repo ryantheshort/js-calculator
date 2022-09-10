@@ -47,7 +47,7 @@ body {
     background-color: var(--datanumber);
     color: #fff;
     text-shadow: 0 0 3px var(--output);
-    
+    border-bottom-left-radius: 10px;
 }
 
 .output {
@@ -61,6 +61,8 @@ body {
 	padding: 10px;
 	word-wrap: break-word;
 	word-break: break-all;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
 }
 
 .output .previous-operand {
@@ -77,6 +79,11 @@ body {
 
 .operator-color {
     background-color: var(--operand);
+}
+
+.operator-equal {
+    background-color: var(--operand);
+	border-bottom-right-radius: 10px;
 }
 .data-color {
     background-color: var(--datatype);
