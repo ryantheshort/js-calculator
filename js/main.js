@@ -13,12 +13,17 @@ function clear(str){ //allows functionality for the AC button.
 	}else if (str === 'AC' && currentOperandTextElement.innerText === '0') { //if the text is just 'C', 
 		clearText='C';
 		currentOperandTextElement.innerText = '';
-	} else if (str ==='AC' && currentOperandTextElement.innerText === ''){
+	} if (str ==='AC' && currentOperandTextElement.innerText === ''){
 		console.log('ac check');
 		currentOperandTextElement.innerText = '';
 		calculation = [];
+		current = 0;
+		prev = [];
+		op = '';
+		calcItems = [];
+		computation = '';
 		console.log(calculation,prev, 'ac calc check');//issue is it takes a second AC click to enter this if statement and also the prev, current & op variables are not getting reset 
-	};
+	}; //currently does not clear the last value from the original calc array.
 };
 
 
