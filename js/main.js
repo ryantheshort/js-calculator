@@ -5,6 +5,7 @@ window.onload = function () {
 }
 
 function clear(str){ //allows functionality for the AC button.
+	console.log('I a hitting the clear button!', str)
 	console.log(str,'clear');
 	if(str === 'C') { // if the text is 'AC' then all data is cleared in array.
 		clearText='AC'
@@ -13,7 +14,9 @@ function clear(str){ //allows functionality for the AC button.
 	}else if (str === 'AC' && currentOperandTextElement.innerText === '0') { //if the text is just 'C', 
 		clearText='C';
 		currentOperandTextElement.innerText = '';
-	} if (str ==='AC' && currentOperandTextElement.innerText === ''){
+	} 
+	
+	if ((str ==='AC' && currentOperandTextElement.innerText === '') || str === 'reset'){
 		console.log('ac check');
 		currentOperandTextElement.innerText = '';
 		calculation = [];
@@ -158,6 +161,7 @@ var computation = '';
 var clearText = '';
 //Define a variable calculation pointing to an empty array
 var calculation = [];
+let usePreviousCalc = false;
 
 
 
@@ -166,6 +170,11 @@ var calculation = [];
 //create event listener for number buttons
 numberButtons.forEach(button => { //loop through each button and add click event listener
 	button.addEventListener('click', () => {
+		if(usePreviousCalc){
+			console.log('firing');
+			clear('reset');
+			usePreviousCalc = false;
+		};
 		pushNumber(button.innerText); //add number to input
 		updateDisplay();
 	});
@@ -174,12 +183,16 @@ numberButtons.forEach(button => { //loop through each button and add click event
 //create event listener operation buttons: + - / * etc.. (assigns a job to the 'click')
 operationButtons.forEach(button => { //loop through each button and add click event listener
 	button.addEventListener('click', () => {
+		if(usePreviousCalc) {
+			usePreviousCalc = false;
+		};
 		pushOperator(button.innerText); //add operator to input
 	});
 });
 
 //add event listener to equals button
 equalsButton.addEventListener('click', button => {
+	usePreviousCalc = true;
 	calculate();
 	updateDisplay();
 });
